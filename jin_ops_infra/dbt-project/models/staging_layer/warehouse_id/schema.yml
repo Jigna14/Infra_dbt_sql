@@ -1,0 +1,27 @@
+version :  2
+models:
+- name: tbl_stg_yard_utilization
+description: Staging table contain the yard capacity of different location within each warehouse.
+owner: jignasha
+meta:
+  grain: warehouse_id,upload_date
+  dag: dbt_airflow_project_dag
+tests:
+- dbt_expectations.expect_compound_columns_to_be_unique:
+    column_list:
+    - warehouse_id
+    - upload_date
+    - yard_capacity
+columns:
+- name: warehouse_id
+  description: '{{ doc ("warehouse_id")}}'
+  tests: 
+  - not_null
+- name: warehouse_name
+  description: '{{ doc ("warehouse_name")}}'
+- name: upload_date
+  description: Upload date of the unit capacity
+- name: trailers
+  description: Amount of Units
+- name: yard_capacity
+  description: total number of parking spots available in the yard for trailers

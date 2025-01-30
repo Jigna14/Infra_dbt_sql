@@ -1,0 +1,12 @@
+project_1_demo:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: airflow-postgres  # Change this to localhost for local execution
+      user: airflow
+      password: airflow
+      port: 5432
+      database: airflow
+      schema: jin_schema
+      threads: 1

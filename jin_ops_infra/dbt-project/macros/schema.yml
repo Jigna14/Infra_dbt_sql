@@ -1,0 +1,16 @@
+version: 2
+
+macros:
+  - name: generic_backfill_macro
+    description: >
+      A macro that can be used to conditionally filter a time range depending on arguments provided. This can be used to for instance backfill tables on sundays by expanding the time > range. 
+      The macro both support regular backfills as well as manual backfills from the terminal Example sql script for regular re-occuring backfills
+      
+      Example use for dbt model format and function placement in script:
+      select 1 as a from "\{\{ref('tbl_dim_carrier')\}\}" e
+      where \{\{generic_backfill_macro(time_value='DATE(e.dwh_modified_timestamp)',
+      regular_run_start='DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH)',
+      regular_run_end='CURRENT_DATE()',
+      regular_backfill_start='DATE("2009-01-01")',
+      regular_backfill_end='CURRENT_DATE()',  
+      backfill_condition='EXTRACT(DAYOFWEEK FROM CURRENT_DATE()) = 7')\}\}

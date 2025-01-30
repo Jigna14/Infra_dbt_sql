@@ -1,0 +1,8 @@
+version: 2
+sources:
+- name: xyz-prod_curated
+  database: wf-gcp-us-ae-xyz-dev
+  schema: curated
+  tables:
+  - name: spot_capacity
+    description: This table hold the information of capacity.

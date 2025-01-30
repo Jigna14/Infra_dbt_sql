@@ -1,0 +1,2 @@
+{% docs warehouse_id %} Uniquely identifies a Castle Gate Fulfillment Center, aka Warehouse. This identifier identifies only the building itself and does not include the on-site parking/off-site parking. Different from Facility ID as the warehouseID only identifies Wayfair Warehouses. {% enddocs %}
+{% docs warehouse_name %} The name of the Castle Gate Fulfillment Center, aka Warehouse. {% enddocs %}
