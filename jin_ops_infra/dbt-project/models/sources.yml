@@ -5,4 +5,4 @@ sources:
   schema: curated
   tables:
   - name: spot_capacity
-    description: This table hold the information of Yard capacity.
+    description: This table hold the information of yard capacity.
