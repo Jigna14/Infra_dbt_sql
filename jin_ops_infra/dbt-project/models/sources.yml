@@ -5,4 +5,15 @@ sources:
   schema: curated
   tables:
   - name: spot_capacity
-    description: This table hold the information of yard capacity.
+    description: This table hold the information of Yard capacity.
+  - name: wh
+  - name: lSi
+  - name: l_wms_suppli
+  - name: tbl_retail_store
+  - name: tbl_reservation
+  - name: Reservation_event
+  - name: referncecontent
+  - name: contentdetail
+  - name: reservation
+  - name: tbl_yard_trailer_visit
+  - name: load_master
