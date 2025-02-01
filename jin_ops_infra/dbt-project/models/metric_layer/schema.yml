@@ -1,0 +1,70 @@
+version: 2
+models:
+- name: tbl_metric_daily_weekly_fill_rate
+  description: Table containing the metric calculations of daily and weekly fill rate
+    on warehouse ID, report date and cadence grain. Additionally, flags for middle
+    mile and large parcel are added.
+  owner: jignasha
+  meta:
+    grain: warehouse_id,report_date,cadence,ship_class
+    dag: dbt_airflow_project_dag
+    metricID: 1
+  tests:
+  - dbt_expectations.expect_compound_columns_to_be_unique:
+      column_list:
+      - warehouse_id
+      - report_date
+      - cadence
+      - ship_class
+  columns:
+  - name: warehouse_id
+    description: '{{ doc ("warehouse_id")}}'
+    tests:
+    - not_null
+  - name: report_date
+    description: '{{ doc ("dnpr_report_date")}}'
+    tests:
+    - not_null
+  - name: fill_rate_mm
+    description: The large parcel middle mile fill rate on warehouse and report date
+      grain
+  - name: refresh_date
+    description: The datetime of data refresh
+  - name: cadence
+    description: Indicates whether the metric value is daily or weekly
+  - name: ship_class
+    description: Indicates the ship class is LP or SP
+    tests:
+    - not_null
+  - name: is_middle_mile
+    description: Indicates whether the warehouse is middle mile or not
+- name: tbl_metric_inbound_trailers
+  description: This metric table provides the amount of trailers on yard (corresponds with EoD Units on Yard metric 23).
+  owner: jignasha
+  meta:
+    grain: report_date, inbound_reservation_id
+    dag: dbt_airflow_project_dag
+  tests:
+  - dbt_expectations.expect_compound_columns_to_be_unique:
+      column_list:
+      - inbound_reservation_id
+      - report_date
+  columns:
+  - name: warehouse_id
+    description: '{{ doc ("warehouse_id")}}'
+    tests:
+    - not_null
+  - name: report_date
+    description: '{{ doc ("dnpr_report_date")}}'
+    tests:
+    - not_null
+  - name: inbound_reservation_id
+    description: '{{ doc ("inbound_trailer_reservation_id")}}'
+  - name: total_amount_units
+    description: The total amount of units on Yard EoD
+  - name: out_of_arrival_72_hours
+    description: The total number of trailers out of 72 hours arrival SLA
+  - name: out_of_appt_1_day
+    description: The total number of trailers out of 1 day appointment SLA
+  - name: out_of_both_sla
+    description: The total number of trailers out of of both SLA

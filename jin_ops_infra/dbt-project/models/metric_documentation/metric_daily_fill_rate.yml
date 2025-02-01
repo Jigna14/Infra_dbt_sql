@@ -1,0 +1,28 @@
+# Daily FR
+310: 
+    metric_name: Daily FR
+    technical_definition: fill_rate_lp_mm / 1
+    unit: '#'
+    unit_concept: Units
+    is_cdl_sourced: false
+    reporting_time_base: report_date
+    numerator_aggregation_function: already_aggregated
+    numerator: fill_rate_lp_mm
+    denominator_aggregation_function: already_aggregated
+    denominator: 1
+    final_aggregation: safe_divide(numerator,denominator)
+    model: tbl_metric_daily_fill_rate
+    variation:
+      A:
+        metric_name: Weekly FR
+        technical_definition: fill_rate_lp_mm / 1
+        unit: '#'
+        unit_concept: Units
+        is_cdl_sourced: false
+        reporting_time_base: report_date
+        numerator_aggregation_function: already_aggregated
+        numerator: fill_rate_lp_mm
+        denominator_aggregation_function: already_aggregated
+        denominator: 1
+        final_aggregation: safe_divide(numerator,denominator)
+        model: tbl_metric_daily_fill_rate
