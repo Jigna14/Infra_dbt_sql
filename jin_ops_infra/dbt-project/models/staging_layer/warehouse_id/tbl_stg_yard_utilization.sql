@@ -61,7 +61,7 @@ BusinessLineSubgroupID,
 Final_Flow,
 Trailer_Full_or_Empty
 FROM 
-    {{source('nm-prod_inbound_management','Onsite_Report_Classified_Historicals')}}
+    {{source('xyz-prod_aad','Report_Classified_Historicals')}}
 WHERE UPLOAD_DATE IS NOT NULL
 and upload_date = current_date()-1
 ),
