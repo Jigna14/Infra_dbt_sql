@@ -42,7 +42,7 @@ WITH accountability AS (
         END AS accountability_bucket,
         SUM(ug.sum_trailer_units) AS sum_trailer_units
     FROM {{ref ('tbl_stg_unit_metrics_prep_reservation_id')}} AS ug
-    LEFT JOIN {{ source('ops-prod_yard_management_staging','tblReservation')}} cr ON ug.inbound_trailer_reservation_id=cr.ReservationID --temp solution for mix up betwen Perris1 and Perris2 in CDL sources for DNPR specific
+    LEFT JOIN {{ source('xyz-prod_curated','reservation')}} cr ON ug.inbound_trailer_reservation_id=cr.ReservationID --temp solution for mix up betwen Perris1 and Perris2 in CDL sources for DNPR specific
     WHERE (ug.subwarehouse LIKE ('%SPDomesticInbound%') OR ug.subwarehouse LIKE ('%SPCGFInbound%') OR ug.subwarehouse LIKE ('%Receiv%') OR ug.subwarehouse LIKE ('%VAS%') OR ug.subwarehouse LIKE ('%SPO%') ) 
     GROUP BY 1,2,3
 ),
