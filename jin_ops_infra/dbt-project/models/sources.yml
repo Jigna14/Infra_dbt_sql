@@ -19,3 +19,8 @@ sources:
   - name: load_master
   - name: tbl_dim_fc_fill_rate
   - name: tbl_dim_fc_weekly_review_fill_rate
+- name: xyz-prod_aad
+  database: wf-gcp-us-ae-xyz-prod
+  schema: aad
+  tables:
+  - name: t_freight_class
