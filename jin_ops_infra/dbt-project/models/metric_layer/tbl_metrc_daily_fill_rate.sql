@@ -19,11 +19,11 @@ SELECT
   c.FacilityType AS is_middle_mile, --null is being left as is for now
   a.cptdatetime,
   a.ShippedOnTime
-FROM {{ source ('ops-prod_analyticstech_reporting', 'tbl_dim_fc_weekly_business_review_fill_rate') }} a
+FROM {{ source ('xyz-prod_curated', 'tbl_dim_fc_weekly_review_fill_rate') }} a
 LEFT JOIN {{ ref ('tbl_dim_castlegate_warehouse') }} b
   -- table a has less warehouses than table b. Left join is used now, there might be nulls of FacilityType in some warehouses
   ON a.whid=b.warehouse_string_id
-LEFT JOIN{{ source ('ops-prod_analyticstech_reporting','tbl_dim_fc_weekly_business_review_fill_rate_mm_flag') }} c
+LEFT JOIN{{ source ('xyz-prod_curated','tbl_dim_fc_fill_rate') }} c
   -- some warehouses are not in both tables, for example Port Wentworth is only in table c but not table b. Left join will exclude the warehouses only in table c
   ON b.warehouse_string_id=c.wh_id
 where a.performanceexclusions = 0

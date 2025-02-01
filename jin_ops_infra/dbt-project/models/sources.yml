@@ -17,3 +17,5 @@ sources:
   - name: reservation
   - name: tbl_yard_trailer_visit
   - name: load_master
+  - name: tbl_dim_fc_fill_rate
+  - name: tbl_dim_fc_weekly_review_fill_rate

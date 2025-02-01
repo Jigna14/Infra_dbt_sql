@@ -20,7 +20,7 @@ SELECT
     inbound_trailer_reservation_id AS inbound_reservation_id,
     warehouse_id,
     SUM(sum_trailer_units) AS sum_trailer_units, --metric 527 - Units on Yard EoD
-FROM {{ ref ('tbl_stg_unit_metrics_prep_reservation_id_snapshot_3')}} 
+FROM {{ ref ('tbl_stg_unit_metrics_preparation_snapshot_2')}} 
 WHERE (subwarehouse LIKE ('%Inbound%') OR subwarehouse LIKE ('%Receiv%') OR subwarehouse LIKE ('%VAS%') OR subwarehouse LIKE ('SubSatelliteLotRomeoville') OR subwarehouse LIKE ('%Rug%')) 
 GROUP BY 1,2,3 
 )
