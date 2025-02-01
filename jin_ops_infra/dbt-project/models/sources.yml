@@ -24,3 +24,4 @@ sources:
   schema: aad
   tables:
   - name: t_freight_class
+  - name: Report_Classified_Historicals
