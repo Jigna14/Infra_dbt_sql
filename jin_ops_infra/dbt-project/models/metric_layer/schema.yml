@@ -68,3 +68,29 @@ models:
     description: The total number of trailers out of 1 day appointment SLA
   - name: out_of_both_sla
     description: The total number of trailers out of of both SLA
+
+- name: tbl_metric_yard_utilization
+  description: Table containing the metric calculations of total yard utilization
+  owner: jignasha
+  meta:
+    grain: warehouse_id,report_date
+    dag: dbt_airflow_project_dag
+    metricID: 12
+  tests:
+  - dbt_expectations.expect_compound_columns_to_be_unique:
+      column_list:
+      - warehouse_id
+      - report_date
+  columns:
+  - name: warehouse_id
+    description: '{{ doc ("warehouse_id")}}'
+    tests:
+    - not_null
+  - name: report_date
+    description: '{{ doc ("dnpr_report_date")}}'
+    tests:
+    - not_null
+  - name: amount_of_units
+    description:  Total amount of Units in each warehouse
+  - name: yard_capacity
+    description:  Total number of parking spots available in the yard for trailers
