@@ -13,7 +13,6 @@ The repository is organized as follows:
 ## 🚀 Getting Started
 
 ### 1️⃣ Clone the Repository
-```bash
 git clone https://github.com/Jigna14/Infra_dbt_sql.git
 cd Infra_dbt_sql
 2️⃣ Install dbt
