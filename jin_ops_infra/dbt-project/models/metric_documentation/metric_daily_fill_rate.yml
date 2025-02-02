@@ -1,5 +1,5 @@
 # Daily FR
-310: 
+1: 
     metric_name: Daily FR
     technical_definition: fill_rate_lp_mm / 1
     unit: '#'
