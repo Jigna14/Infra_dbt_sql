@@ -26,30 +26,21 @@ Set up your profiles.yml file to connect dbt to your data warehouse. Refer to th
 Execute the following dbt commands to test and deploy transformations:
 
 Compile models:
-bash
-Copy
-Edit
 dbt compile
+
 Run models:
-bash
-Copy
-Edit
 dbt run
+
 Test models:
-bash
-Copy
-Edit
 dbt test
+
 Generate documentation:
-bash
-Copy
-Edit
 dbt docs generate
+
 Serve documentation:
-bash
-Copy
-Edit
 dbt docs serve
+
+
 🛠 Models & Transformations
 The models/ directory contains SQL files that define data transformations. Some key models include:
 
@@ -63,19 +54,13 @@ not_null: Ensures a column has no null values.
 unique: Ensures values in a column are unique.
 relationships: Validates foreign key relationships between tables.
 To run these tests, use:
-
-bash
-Copy
-Edit
 dbt test
+
 📖 Documentation
 To generate and serve interactive documentation, run:
-
-bash
-Copy
-Edit
 dbt docs generate
 dbt docs serve
+
 This will launch a web-based UI displaying model dependencies, columns, and test coverage.
 
 📌 Contributing
