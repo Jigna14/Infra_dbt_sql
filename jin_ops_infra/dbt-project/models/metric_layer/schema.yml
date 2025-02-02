@@ -94,3 +94,58 @@ models:
     description:  Total amount of Units in each warehouse
   - name: yard_capacity
     description:  Total number of parking spots available in the yard for trailers
+
+- name: tbl_metric_throughput_variance
+  description: Table containing the metric calculations on warehouse ID for the previous
+    day for Throughput Variance Week to Date, Throughput Variance Daily, Actual FC
+    Units Received Week to Date and Actual FC Units Received Daily.
+  owner: jignasha
+  meta:
+    grain: warehouse_id,report_date
+    dag: dbt_airflow_project_dag
+    metricID: null
+  tests:
+  - dbt_expectations.expect_compound_columns_to_be_unique:
+      column_list:
+      - warehouse_id
+      - report_date
+  columns:
+  - name: warehouse_id
+    description: '{{ doc ("warehouse_id")}}'
+    tests:
+    - not_null
+  - name: report_date
+    description: '{{ doc ("dnpr_report_date")}}'
+  - name: received_units_actual_week_to_date
+    description: The total number of units received by a Warehouse from the beginning
+      of the week (Sunday) to date (yesterday).
+  - name: received_units_actual_reporting_daily
+    description: The total number of units received by a Warehouse yesterday.
+  - name: inbound_unit_receiving_capacity_week_to_date
+    description: The total inbound unit capacity by a Warehouse from the beginning
+      of the week (Sunday) to date (yesterday).
+  - name: inbound_unit_capacity_reporting_daily
+    description: The total inbound unit capacity by a Warehouse for yesterday.
+  - name: throughput_variance_week_to_date_num
+    description: The difference between the received_units_actual_week_to_date and
+      inbound_unit_receiving_capacity_week_to_date used as a numerator for the metric
+      calculation.
+  - name: throughput_variance_week_to_date_denominator
+    description: Amount of the inbound_unit_receiving_capacity_week_to_date used as
+      denominator for the metric calculation.
+  - name: throughput_variance_daily_num
+    description: The difference between the received_units_actual_daily and inbound_unit_receiving_capacity_daily
+      used as a numerator for the metric calculation.
+  - name: throughput_variance_daily_denominator
+    description: Amount of the inbound_unit_receiving_capacity_daily used as denominator
+      for the metric calculation.
+  - name: throughput_variance_week_to_date
+    description: The difference between the received_units_actual_week_to_date and
+      inbound_unit_receiving_capacity_week_to_date as % of the inbound_unit_receiving_capacity_week_to_date.
+  - name: throughput_variance_daily
+    description: The difference between the received_units_actual_daily and inbound_unit_receiving_capacity_daily
+      as % of the inbound_unit_receiving_capacity_daily.
+  - name: ob_fc_total_units_shipped_actuals_day
+    description: To be Continued..
+  - name: ob_fc_total_units_shipped_actuals_week
+    description: To be Continued..
