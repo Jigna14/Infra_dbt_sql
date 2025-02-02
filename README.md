@@ -15,6 +15,7 @@ The repository is organized as follows:
 ### 1️⃣ Clone the Repository
 git clone https://github.com/Jigna14/Infra_dbt_sql.git
 cd Infra_dbt_sql
+
 2️⃣ Install dbt
 Ensure you have dbt installed. Follow the official dbt installation guide based on your operating system.
 
