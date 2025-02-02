@@ -1,6 +1,6 @@
 version: 2
 models:
-- name: tbl_metric_daily_weekly_fill_rate
+- name: tbl_metrc_daily_fill_rate
   description: Table containing the metric calculations of daily and weekly fill rate
     on warehouse ID, report date and cadence grain. Additionally, flags for middle
     mile and large parcel are added.
