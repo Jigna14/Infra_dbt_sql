@@ -48,6 +48,7 @@ The models/ directory contains SQL files that define data transformations. Some 
 **stg_*.sql:** Staging models used to clean and prepare raw data.
 **metric_*.sql:** Intermediate models applying business logic.
 **reporting_*.sql:** Final models ready for reporting and analytics.
+
 **✅ Data Quality & Testing:**
 The **schema.yml** file defines tests to ensure data integrity. Some commonly used tests include:
 
