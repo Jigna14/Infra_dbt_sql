@@ -27,19 +27,19 @@ Set up your profiles.yml file to connect dbt to your data warehouse. Refer to th
 Execute the following dbt commands to test and deploy transformations:
 
 Compile models:
-dbt compile
+**dbt compile**
 
 Run models:
-dbt run
+**dbt run**
 
 Test models:
-dbt test
+**dbt test**
 
 Generate documentation:
-dbt docs generate
+**dbt docs generate**
 
 Serve documentation:
-dbt docs serve
+**dbt docs serve**
 
 
 🛠 Models & Transformations
