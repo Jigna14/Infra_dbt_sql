@@ -42,14 +42,14 @@ Serve documentation:
 **dbt docs serve**
 
 
-🛠 Models & Transformations
+**🛠 Models & Transformations:**
 The models/ directory contains SQL files that define data transformations. Some key models include:
 
-stg_*.sql: Staging models used to clean and prepare raw data.
-int_*.sql: Intermediate models applying business logic.
-final_*.sql: Final models ready for reporting and analytics.
-✅ Data Quality & Testing
-The schema.yml file defines tests to ensure data integrity. Some commonly used tests include:
+**stg_*.sql:** Staging models used to clean and prepare raw data.
+**metric_*.sql:** Intermediate models applying business logic.
+**reporting_*.sql:** Final models ready for reporting and analytics.
+**✅ Data Quality & Testing:**
+The **schema.yml** file defines tests to ensure data integrity. Some commonly used tests include:
 
 not_null: Ensures a column has no null values.
 unique: Ensures values in a column are unique.
@@ -57,19 +57,19 @@ relationships: Validates foreign key relationships between tables.
 To run these tests, use:
 dbt test
 
-📖 Documentation
+**📖 Documentation**
 To generate and serve interactive documentation, run:
 dbt docs generate
 dbt docs serve
 
 This will launch a web-based UI displaying model dependencies, columns, and test coverage.
 
-📌 Contributing
+**📌 Contributing**
 We welcome contributions! To contribute:
 
-Fork the repository.
+**Fork the repository.**
 Create a feature branch.
 Make changes and commit with descriptive messages.
 Open a pull request for review.
-📄 License
+**📄 License**
 This project is licensed under the MIT License. See the LICENSE file for more details.
