@@ -70,7 +70,7 @@ This will launch a web-based UI displaying model dependencies, columns, and test
 We welcome contributions! To contribute:
 
 
-**Fork the repository.**
+**📖 Fork the repository:**
 
 Create a feature branch.
 Make changes and commit with descriptive messages.
