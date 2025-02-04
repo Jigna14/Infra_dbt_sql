@@ -58,19 +58,22 @@ relationships: Validates foreign key relationships between tables.
 To run these tests, use:
 dbt test
 
-**📖 Documentation**
+**📖 Documentation:** 
+
 To generate and serve interactive documentation, run:
 dbt docs generate
 dbt docs serve
 
 This will launch a web-based UI displaying model dependencies, columns, and test coverage.
 
-**📌 Contributing**
+**📌 Contributing:**
 We welcome contributions! To contribute:
 
 **Fork the repository.**
+
 Create a feature branch.
 Make changes and commit with descriptive messages.
 Open a pull request for review.
-**📄 License**
+**📄 License:**
+
 This project is licensed under the MIT License. See the LICENSE file for more details.
