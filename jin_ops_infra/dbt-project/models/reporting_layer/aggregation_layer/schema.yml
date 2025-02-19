@@ -1,7 +1,7 @@
 version: 2
 models:
 
-  - name: tbl_dnpr_inbound_exec_aggregation_layer
+  - name: tbl_aggregation_inbound
     description: To be Continued..
     owner: jignasha
     meta:
