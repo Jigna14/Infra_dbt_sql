@@ -25,3 +25,28 @@ models:
         description: The metric numerator or metric value if there is no denominator for that particular metric.
       - name: metric_denominator
         description: The metric denominator if available. Defaulted to 1 if the metric has already been calculated in a metric table.
+
+  - name: tbl_aggregation_outbound
+    description: To be Continued..
+    owner: jignasha
+    meta:
+        grain: metric_id,metric_name,time_base_date,warehouse_name,country_long
+        dag: dbt_airflow_project_dag
+    tests:
+      - dbt_expectations.expect_compound_columns_to_be_unique:
+            column_list: ['metric_id','metric_name','time_base_date','warehouse_name','country_long']
+    columns:
+      - name: warehouse_name
+        description: The name of the warehouse
+      - name: country_long
+        description: The long/full name of the country
+      - name: metric_id
+        description: The metricID for which the metric_numerator and metric_denominator are showing values for that time base for those dimensions.
+      - name: metric_name
+        description: The name of the metric pulled from the GAT metric dictionary.
+      - name: time_base_date
+        description: The date for which the metric value is shown. The time base of the reporting table. This reporting table is aggregated on daily level
+      - name: metric_numerator
+        description: The metric numerator or metric value if there is no denominator for that particular metric.
+      - name: metric_denominator
+        description: The metric denominator if available. Defaulted to 1 if the metric has already been calculated in a metric table.
