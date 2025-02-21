@@ -47,3 +47,9 @@ models:
   - name: sum_trailer_units
     description: The number of units pulled from tbl_stg_units_reservation_id for
       that reservationID.
+  - name: subwarehouse
+    description: A categorical field showing which part of the warehouse is this trailer
+      being handled by. Typically used to distinguish between whether the trailer
+      is a return trailer, CastleGate inbound, CastleGate outboud, Middle Mile, etc.
+      Will show the subwarehouse for the inbound reservationID in the event that there
+      are multiple ones.
