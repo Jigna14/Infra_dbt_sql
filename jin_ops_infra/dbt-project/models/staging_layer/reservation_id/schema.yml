@@ -4,10 +4,10 @@ models:
   description: A staging table on trailer_reservation_id granularity joining tbl_stg_units_reservation_id,
     vw_stg_trailer_visit_id and tbl_castlegate_warehouse in order to prepare the units
     metrics for later calculation for DNHPR inbound and return metrics taking Screenshots everyday at 4 AM.
-  owner: jignasha
+  owner: jdobariya
   meta:
     grain: inbound_trailer_reservation_id
-    dag: dbt_airflow_project_dag
+    dag: dbt_airflow_dnpr_dag
   columns:
   - name: inbound_trailer_reservation_id
     description: '{{ doc ("inbound_trailer_reservation_id")}}'
@@ -39,3 +39,11 @@ models:
   - name: trailer_scheduled_start_week_date
     description: The date of the beginning of the week for a given scheduled start
       date.
+  - name: trailer_scheduled_start_datetime_local
+    description: The datetime of when the trailer was supposed to arrive at the site
+  - name: trailer_arrival_datetime_local
+    description: Datetime of the trailer arrival in local time. Used in reservation
+      arrival status metric table to comapre to the scheduled start date.
+  - name: sum_trailer_units
+    description: The number of units pulled from tbl_stg_units_reservation_id for
+      that reservationID.
