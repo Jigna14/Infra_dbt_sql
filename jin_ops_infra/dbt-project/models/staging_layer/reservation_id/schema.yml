@@ -29,3 +29,13 @@ models:
         - arrived_on_time
         - arrived_late
         - null
+  - name: unload_time_window_at_arrival_hours
+    description: The hour difference between the arrival of the trailer and the scheduled
+      arrival to check whether what is the unload time window change
+  - name: remaining_unload_time_hours
+    description: The hour difference between the scheduled arrival and the time of
+      data refresh to see how much longer does the site has to unload the trailer
+      and meet SLA
+  - name: trailer_scheduled_start_week_date
+    description: The date of the beginning of the week for a given scheduled start
+      date.
