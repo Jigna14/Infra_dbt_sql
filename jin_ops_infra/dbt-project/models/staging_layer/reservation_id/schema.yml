@@ -1,2 +1,31 @@
 version: 2
 models:
+- name: tbl_stg_unit_metrics_prep_reservation_id_snapshot_3
+  description: A staging table on trailer_reservation_id granularity joining tbl_stg_units_reservation_id,
+    vw_stg_trailer_visit_id and tbl_castlegate_warehouse in order to prepare the units
+    metrics for later calculation for DNHPR inbound and return metrics taking Screenshots everyday at 4 AM.
+  owner: jignasha
+  meta:
+    grain: inbound_trailer_reservation_id
+    dag: dbt_airflow_project_dag
+  columns:
+  - name: inbound_trailer_reservation_id
+    description: '{{ doc ("inbound_trailer_reservation_id")}}'
+    tests:
+    - not_null
+    - unique
+  - name: warehouse_id
+    description: '{{ doc ("warehouse_id")}}'
+  - name: time_zone_hours_offset
+    description: The hour offset needed to bring an event from EST to the local time
+      of the warehouse
+  - name: arrival_status
+    description: Categorical field that shows whether reservation arrival was on time,
+      early, or late
+    tests:
+    - accepted_values:
+        values:
+        - arrived_early
+        - arrived_on_time
+        - arrived_late
+        - null
